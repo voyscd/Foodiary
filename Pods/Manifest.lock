@@ -1,0 +1,13 @@
+PODS:
+  - Firebase (2.5.1)
+  - Fusuma (0.3.8)
+
+DEPENDENCIES:
+  - Firebase (>= 2.5.1)
+  - Fusuma
+
+SPEC CHECKSUMS:
+  Firebase: 3565ea88b830f28f2c77ecc524622bc71a20d085
+  Fusuma: e54c4a1627c7faa26733b1354e8e959318b1f763
+
+COCOAPODS: 0.39.0
