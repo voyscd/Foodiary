@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "08B9D4237E898D77C279482DFCDF66DE61177D04",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "4EC232309DAB1BBD2971249199EE882847846855" : 0,
+    "08B9D4237E898D77C279482DFCDF66DE61177D04" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6D5877B3-8537-4E59-AAF3-81611784EE97",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "4EC232309DAB1BBD2971249199EE882847846855" : "Foodiary\/Foodiary\/",
+    "08B9D4237E898D77C279482DFCDF66DE61177D04" : "Foodiary\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Foodiary",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Foodiary.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/voyscd\/Foodiary.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "08B9D4237E898D77C279482DFCDF66DE61177D04"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/voyscd\/Foodiary.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4EC232309DAB1BBD2971249199EE882847846855"
+    }
+  ]
+}

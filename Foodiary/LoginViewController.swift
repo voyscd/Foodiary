@@ -9,21 +9,6 @@
 import UIKit
 import Firebase
 
-extension UIViewController {
-    func hideKeyboardWhenTappedAround()
-    {
-        //Looks for single or multiple taps.
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-        view.addGestureRecognizer(tap)
-    }
-    //Calls this function when the tap is recognized.
-    func dismissKeyboard()
-    {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
-    }
-}
-
 class LoginViewController: UIViewController, UITextFieldDelegate
 {
     
@@ -47,10 +32,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate
                 {
                     // User login successfully
                     NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
+                    self.performSegueWithIdentifier("LoginSegue", sender: self)
                     print("Logged In :)")
                 }
                 else
                 {
+                    self.displayAlert("Error", message: "Incorrect Username or Password.")
                     print(error)
                 }
             })
@@ -58,10 +45,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate
         // Give alter if either one of the the textfield is blank
         else
         {
-            let alert = UIAlertController(title: "Error", message: "Enter Email and Password.", preferredStyle: UIAlertControllerStyle.Alert)
-            let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
-            alert.addAction(action)
-            self.presentViewController(alert, animated: true, completion: nil)
+            displayAlert("Error", message: "Enter Email and Password.")
         }
     }
 
@@ -69,8 +53,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate
         super.viewDidLoad()
         emailTF.delegate = self
         passwordTF.delegate = self
-        // Dismiss the keyboard when tapped around
-        self.hideKeyboardWhenTappedAround()
 
     }
     
@@ -99,22 +81,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate
         self.logoutBT.hidden = true
         print("Logged Out :)")
     }
-    
-    // Dismiss the keyboard by tapping the return
-    func textFieldDidBeginEditing(textField: UITextField)
-    {
-        
+    // Dismiss keyboard when touch ouside the keyboard
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
-    func textFieldShouldEndEditing(textField: UITextField) -> Bool
-    {
-        return true
-    }
-    
+    // Dismiss the keyboard by clicking the return
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
-        textField.resignFirstResponder()
+        self.view.endEditing(true)
         return true
+    }
+    
+    func displayAlert(title:String, message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
 

@@ -75,30 +75,22 @@ class SignupViewController: UIViewController, UITextFieldDelegate
         super.viewDidLoad()
         signupEmailTF.delegate = self
         signupPasswordTF.delegate = self
-        
-        // Dismiss the keyboard when tapped around
-        self.hideKeyboardWhenTappedAround()
     }
 
+    // Dismiss keyboard when touch ouside the keyboard
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    // Dismiss the keyboard by tapping the return
-    func textFieldDidBeginEditing(textField: UITextField)
-    {
-        
-    }
-    
-    func textFieldShouldEndEditing(textField: UITextField) -> Bool
-    {
-        return true
-    }
-    
+    // Dismiss the keyboard by clicking the return
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
-        textField.resignFirstResponder()
+        self.view.endEditing(true)
         return true
     }
 

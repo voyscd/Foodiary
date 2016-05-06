@@ -19,9 +19,8 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         self.delegate = self
 
-        let middleImage:UIImage = UIImage(named:"PostButton45")!
-        let highlightedMiddleImage:UIImage = UIImage(named:"PostButtonHighlighted45")!
-        
+        let middleImage:UIImage = UIImage(named:"PostTabBar49")!
+        let highlightedMiddleImage:UIImage = UIImage(named:"PostTabBar49")!
         
         addCenterButtonWithImage(middleImage, highlightImage: highlightedMiddleImage)
         self.tabBar.barTintColor = UIColor.blackColor()
@@ -32,7 +31,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
     //MARK: TABBAR DELEAGATE
     func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
-        if !viewController.isKindOfClass(postViewController)
+        if !viewController.isKindOfClass(PostViewController)
         {
             button.userInteractionEnabled = true
             button.highlighted = false
