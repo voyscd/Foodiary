@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XAC-eM-pqm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="EGp-KO-gMq">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -135,16 +135,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Romantic Dinner For Two Holiday iPhone 5 Wallpaper" translatesAutoresizingMaskIntoConstraints="NO" id="3dX-yk-sud">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="justified" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="pVf-fe-ADO">
-                                <rect key="frame" x="20" y="139" width="280" height="30"/>
-                                <color key="backgroundColor" red="0.4548374684" green="0.60651253370000002" blue="0.81005317379999997" alpha="0.23000000000000001" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="bN1-0N-lWo"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="light" returnKeyType="next"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" placeholderIntrinsicWidth="280" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="qRu-zC-8qt">
                                 <rect key="frame" x="20" y="177" width="280" height="30"/>
                                 <color key="backgroundColor" red="0.15459252330000001" green="0.40928052409999999" blue="0.73541043539999995" alpha="0.22" colorSpace="calibratedRGB"/>
@@ -184,22 +174,46 @@
                                     <segue destination="EGp-KO-gMq" kind="presentation" identifier="BackToLoginSegue" modalTransitionStyle="flipHorizontal" id="S8D-wA-eup"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="justified" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="xwx-NB-2MR">
+                                <rect key="frame" x="20" y="139" width="280" height="30"/>
+                                <color key="backgroundColor" red="0.4548374684" green="0.60651253370000002" blue="0.81005317379999997" alpha="0.23000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="aHi-aB-Fz6"/>
+                                    <constraint firstAttribute="height" constant="30" id="zLg-2C-LRQ"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="light" returnKeyType="next"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="justified" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="pVf-fe-ADO">
+                                <rect key="frame" x="20" y="101" width="280" height="30"/>
+                                <color key="backgroundColor" red="0.4548374684" green="0.60651253370000002" blue="0.81005317379999997" alpha="0.23000000000000001" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="light" returnKeyType="next"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="pVf-fe-ADO" firstAttribute="leading" secondItem="MRn-Pl-OhD" secondAttribute="leadingMargin" id="5ij-Fw-NBY"/>
                             <constraint firstItem="qRu-zC-8qt" firstAttribute="leading" secondItem="MRn-Pl-OhD" secondAttribute="leadingMargin" id="5mF-Ev-Jy5"/>
                             <constraint firstItem="NQC-Zy-CjU" firstAttribute="leading" secondItem="MRn-Pl-OhD" secondAttribute="leadingMargin" id="DsT-CH-ai3"/>
-                            <constraint firstItem="pVf-fe-ADO" firstAttribute="centerY" secondItem="MRn-Pl-OhD" secondAttribute="centerY" constant="-130" id="G8x-Nb-CQZ"/>
                             <constraint firstItem="NQC-Zy-CjU" firstAttribute="centerY" secondItem="MRn-Pl-OhD" secondAttribute="centerY" constant="-55.5" id="LAK-BW-iCN"/>
                             <constraint firstItem="2WR-cj-v7z" firstAttribute="top" secondItem="NQC-Zy-CjU" secondAttribute="bottom" constant="8" id="LV3-6D-6cD"/>
-                            <constraint firstItem="pVf-fe-ADO" firstAttribute="trailing" secondItem="MRn-Pl-OhD" secondAttribute="trailingMargin" id="USC-UP-eRa"/>
+                            <constraint firstItem="xwx-NB-2MR" firstAttribute="leading" secondItem="MRn-Pl-OhD" secondAttribute="leadingMargin" id="LsH-I2-zy1"/>
+                            <constraint firstItem="pVf-fe-ADO" firstAttribute="centerY" secondItem="MRn-Pl-OhD" secondAttribute="centerY" constant="-168" id="Nlx-jG-26F"/>
+                            <constraint firstItem="pVf-fe-ADO" firstAttribute="trailing" secondItem="MRn-Pl-OhD" secondAttribute="trailingMargin" id="RnL-7J-dGX"/>
+                            <constraint firstItem="qRu-zC-8qt" firstAttribute="top" secondItem="xwx-NB-2MR" secondAttribute="bottom" constant="8" id="Tx7-dQ-yOE"/>
+                            <constraint firstItem="xwx-NB-2MR" firstAttribute="trailing" secondItem="MRn-Pl-OhD" secondAttribute="trailingMargin" id="U8R-WD-5OK"/>
+                            <constraint firstItem="pVf-fe-ADO" firstAttribute="leading" secondItem="MRn-Pl-OhD" secondAttribute="leadingMargin" id="Uta-cq-1X0"/>
                             <constraint firstItem="2WR-cj-v7z" firstAttribute="centerY" secondItem="MRn-Pl-OhD" secondAttribute="centerY" constant="-16" id="XfS-59-B1v"/>
                             <constraint firstItem="2WR-cj-v7z" firstAttribute="leading" secondItem="MRn-Pl-OhD" secondAttribute="leadingMargin" id="YMw-2X-6FZ"/>
                             <constraint firstItem="qRu-zC-8qt" firstAttribute="trailing" secondItem="MRn-Pl-OhD" secondAttribute="trailingMargin" id="ZFU-X7-shX"/>
+                            <constraint firstItem="xwx-NB-2MR" firstAttribute="top" secondItem="pVf-fe-ADO" secondAttribute="bottom" constant="8" id="aof-Oo-pEl"/>
                             <constraint firstItem="2WR-cj-v7z" firstAttribute="trailing" secondItem="MRn-Pl-OhD" secondAttribute="trailingMargin" id="dPC-Sr-gAb"/>
                             <constraint firstItem="qRu-zC-8qt" firstAttribute="centerY" secondItem="MRn-Pl-OhD" secondAttribute="centerY" constant="-92" id="hw0-GH-S1X"/>
+                            <constraint firstItem="pVf-fe-ADO" firstAttribute="top" secondItem="pLq-Zu-b5N" secondAttribute="bottom" constant="101" id="iCG-Qr-jcl"/>
                             <constraint firstItem="NQC-Zy-CjU" firstAttribute="trailing" secondItem="MRn-Pl-OhD" secondAttribute="trailingMargin" id="u9d-cZ-a3s"/>
+                            <constraint firstItem="xwx-NB-2MR" firstAttribute="centerY" secondItem="MRn-Pl-OhD" secondAttribute="centerY" constant="-130" id="uhd-Tg-dJP"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -209,6 +223,7 @@
                         <outlet property="signupBT" destination="NQC-Zy-CjU" id="rNT-0O-ceJ"/>
                         <outlet property="signupEmailTF" destination="pVf-fe-ADO" id="ehp-z4-Rpf"/>
                         <outlet property="signupPasswordTF" destination="qRu-zC-8qt" id="x2t-zc-Hwc"/>
+                        <outlet property="signupUsernameTF" destination="xwx-NB-2MR" id="cKd-LJ-LZf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ur-xN-FIY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -258,9 +273,12 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8f-N9-f5A">
                                 <rect key="frame" x="20" y="201" width="280" height="30"/>
                                 <color key="backgroundColor" red="0.40784313725490196" green="0.52941176470588236" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Next">
+                                <state key="normal" title="Save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="SavePost:" destination="sEI-e8-Vmn" eventType="touchUpInside" id="pbC-Ob-llH"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -279,6 +297,7 @@
                     <connections>
                         <outlet property="AddPostButton" destination="POF-v3-FhR" id="0Tn-NP-0aD"/>
                         <outlet property="PostImage" destination="h3c-Jb-znp" id="Oit-j6-Fyh"/>
+                        <outlet property="SavePostButton" destination="E8f-N9-f5A" id="4si-DU-AvM"/>
                         <outlet property="captionTextView" destination="w31-r1-cg9" id="5lM-T5-3wt"/>
                     </connections>
                 </viewController>

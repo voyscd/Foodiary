@@ -15,6 +15,8 @@ class SignupViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var signupEmailTF: UITextField!
     
     @IBOutlet weak var signupPasswordTF: UITextField!
+    
+    @IBOutlet weak var signupUsernameTF: UITextField!
 
     @IBOutlet weak var signupBT: UIButton!
     
@@ -22,10 +24,11 @@ class SignupViewController: UIViewController, UITextFieldDelegate
     @IBAction func signupAction(sender: AnyObject)
     {
         let email = self.signupEmailTF.text
+        let username = self.signupUsernameTF.text
         let password = self.signupPasswordTF.text
         
         // If both textfields are not blank
-        if email != "" && password != ""
+        if email != "" && username != "" && password != ""
         {
             // Create the user in Firebase
             FIREBASE_REF.createUser(email, password: password, withValueCompletionBlock: { (error, authData) -> Void in
@@ -39,9 +42,18 @@ class SignupViewController: UIViewController, UITextFieldDelegate
                         // If no error during the authentication
                         if error == nil
                         {
+                            // Store the uid for future access
                             NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
-                            NSUserDefaults.standardUserDefaults().synchronize()
+                            
+                            // Save the data into firebase database
+                            let user = ["Email": email!, "Username": username!, "Password": password!]
+                            //_USER_REF.childByAppendingPath(authData.uid).setValue(user)
+                            createNewAccount(authData.uid, user: user)
+                            
+                            //NSUserDefaults.standardUserDefaults().synchronize()
                             print("Account Created :)")
+                            
+                            // Dismiss the view and return to login view
                             self.dismissViewControllerAnimated(true,completion: nil)
                         }
                         else
@@ -62,10 +74,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate
         // Give alter if either one of the the textfield is blank
         else
         {
-            let alert = UIAlertController(title: "Error", message: "Enter Email and Password.", preferredStyle: UIAlertControllerStyle.Alert)
-            let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
-            alert.addAction(action)
-            self.presentViewController(alert, animated: true, completion: nil)
+            displayAlert()
         }
         
     }
@@ -92,6 +101,13 @@ class SignupViewController: UIViewController, UITextFieldDelegate
     {
         self.view.endEditing(true)
         return true
+    }
+    
+    func displayAlert() {
+        let alert = UIAlertController(title: "Error", message: "Enter Email and Password.", preferredStyle: UIAlertControllerStyle.Alert)
+        let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+        alert.addAction(action)
+        self.presentViewController(alert, animated: true, completion: nil)
     }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
