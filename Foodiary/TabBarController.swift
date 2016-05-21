@@ -19,8 +19,8 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         self.delegate = self
 
-        let middleImage:UIImage = UIImage(named:"PostTabBar49")!
-        let highlightedMiddleImage:UIImage = UIImage(named:"PostButtonHighlighted45")!
+        let middleImage:UIImage = UIImage(named:"PostTabBar98")!
+        let highlightedMiddleImage:UIImage = UIImage(named:"PostTabBarHighlighted98")!
         
         addCenterButtonWithImage(middleImage, highlightImage: highlightedMiddleImage)
         self.tabBar.barTintColor = UIColor.blackColor()

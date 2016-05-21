@@ -22,6 +22,16 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Customise the navigation bar
+        let color = UIColor(red: 104/255, green: 135/255, blue: 184/255, alpha: 1)
+        
+        self.tabBarController?.tabBar.hidden = false
+        self.tabBarController?.tabBar.tintColor = UIColor.whiteColor()
+        
+        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.barStyle = .Black
+        self.navigationController?.navigationBar.barTintColor = color
+        
         // Create the TextView placeholder programmatically
         captionTextView.delegate = self
         self.captionTextView.text = "Write a caption..."
@@ -56,20 +66,20 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
             let base64String = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
             
             // Build the new Post.
-            // AnyObject is needed because of the votes of type Int.
+            // AnyObject is needed because of the likes of type Int.
             
             let newPost: Dictionary<String, AnyObject> = [
-                "Caption": captionText!,
-                "PostImage": base64String,
-                "Votes": 0,
-                "Author": currentUsername
+                "postCaption": captionText!,
+                "postImage": base64String,
+                "likes": 0,
+                "author": currentUsername
             ]
             
             // Send it over to BaseService and save the data in Firebase.
             
             createNewPost(newPost)
             
-            self.performSegueWithIdentifier("SavePostSegue", sender: self)
+            //self.performSegueWithIdentifier("SavePostSegue", sender: self)
             
 //            if let navController = self.navigationController {
 //                navController.popViewControllerAnimated(true)

@@ -15,7 +15,7 @@ class Post {
     private var _postKey: String!
     private var _postCaption: String!
     private var _postImage: String!
-    private var _postVotes: Int!
+    private var _postLikes: Int!
     private var _username: String!
     
     var postKey: String {
@@ -30,8 +30,8 @@ class Post {
         return _postImage
     }
     
-    var postVotes: Int {
-        return _postVotes
+    var postLikes: Int {
+        return _postLikes
     }
     
     var username: String {
@@ -45,12 +45,16 @@ class Post {
         
         // Within the post, or key, the following properties are children
         
-        if let votes = dictionary["votes"] as? Int {
-            self._postVotes = votes
+        if let image = dictionary["postImage"] as? String {
+            self._postImage = image
         }
         
-        if let post = dictionary["postText"] as? String {
-            self._postCaption = post
+        if let likes = dictionary["likes"] as? Int {
+            self._postLikes = likes
+        }
+        
+        if let caption = dictionary["postCaption"] as? String {
+            self._postCaption = caption
         }
         
         if let user = dictionary["author"] as? String {
@@ -64,17 +68,18 @@ class Post {
         self._postRef = POST_REF.childByAppendingPath(self._postKey)
     }
     
-    func addSubtractVote(addVote: Bool) {
+    // Add or Subtract a Like from the Post.
+    func addSubtractLike(addLike: Bool) {
         
-        if addVote {
-            _postVotes = _postVotes + 1
+        if addLike {
+            _postLikes = _postLikes + 1
         } else {
-            _postVotes = _postVotes - 1
+            _postLikes = _postLikes - 1
         }
         
-        // Save the new vote total.
+        // Save the new like total.
         
-        _postRef.childByAppendingPath("votes").setValue(_postVotes)
+        _postRef.childByAppendingPath("likes").setValue(_postLikes)
         
     }
 
