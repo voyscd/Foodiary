@@ -17,6 +17,10 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        // Set the default tab
+        
+        
         self.delegate = self
 
         let middleImage:UIImage = UIImage(named:"PostTabBar98")!
@@ -73,7 +77,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
             button.center = center;
         }
         
-        button.addTarget(self, action: "changeTabToMiddleTab:", forControlEvents: UIControlEvents.TouchUpInside)
+        button.addTarget(self, action: #selector(TabBarController.changeTabToMiddleTab(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
         self.view.addSubview(button)
     }
@@ -81,9 +85,10 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
     func changeTabToMiddleTab(sender:UIButton)
     {
-        
-        let selectedIndex = Int(self.viewControllers!.count/2)
+        // Set Default Tab
+        let selectedIndex = 0 //Int(self.viewControllers!.count/2)
         self.selectedIndex = selectedIndex
+        
         self.selectedViewController = (self.viewControllers as [AnyObject]?)?[selectedIndex] as? UIViewController
         dispatch_async(dispatch_get_main_queue(), {
             

@@ -13,7 +13,19 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Customise the navigation bar
+        let color = UIColor(red: 104/255, green: 135/255, blue: 184/255, alpha: 1)
+        
+        self.tabBarController?.tabBar.hidden = false
+        self.tabBarController?.tabBar.tintColor = UIColor.whiteColor()
+        
+        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.barStyle = .Black
+        self.navigationController?.navigationBar.barTintColor = color
+
         // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {

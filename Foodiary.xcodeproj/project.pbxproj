@@ -24,6 +24,7 @@
 		6FAA89BC1CDA362F003346CE /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA89BB1CDA362F003346CE /* BaseService.swift */; };
 		6FDC951B1CF06728004ABBE5 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDC951A1CF06728004ABBE5 /* FeedTableViewController.swift */; };
 		6FDC951D1CF08D0E004ABBE5 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDC951C1CF08D0E004ABBE5 /* PostTableViewCell.swift */; };
+		6FDC951F1CF2044F004ABBE5 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDC951E1CF2044F004ABBE5 /* ProfileTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		6FAA89BB1CDA362F003346CE /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseService.swift; path = ../BaseService.swift; sourceTree = "<group>"; };
 		6FDC951A1CF06728004ABBE5 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
 		6FDC951C1CF08D0E004ABBE5 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		6FDC951E1CF2044F004ABBE5 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		738F75E49CC6693B877CF25F /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				6FA77C661CE1B94700174A6F /* ProfileViewController.swift */,
+				6FDC951E1CF2044F004ABBE5 /* ProfileTableViewController.swift */,
 			);
 			name = "Profile Pages";
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				6FA77C5F1CDCD1FE00174A6F /* PostViewController.swift in Sources */,
 				6F8F70021CDA342500842B1F /* SignupViewController.swift in Sources */,
 				6FA77C5D1CDB6F7A00174A6F /* TabBarController.swift in Sources */,
+				6FDC951F1CF2044F004ABBE5 /* ProfileTableViewController.swift in Sources */,
 				6F8F6FCC1CDA2D4600842B1F /* AppDelegate.swift in Sources */,
 				6FA77C671CE1B94700174A6F /* ProfileViewController.swift in Sources */,
 				6FDC951B1CF06728004ABBE5 /* FeedTableViewController.swift in Sources */,

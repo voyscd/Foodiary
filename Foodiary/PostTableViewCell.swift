@@ -17,6 +17,13 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var captionTextView: UITextView!
     @IBOutlet weak var totalLikesLabel: UILabel!
     @IBOutlet weak var likeImage: UIImageView!
+    @IBOutlet weak var categoryImage: UIImageView!
+    @IBOutlet weak var categoryLabel: UILabel!
+    
+    
+    @IBOutlet weak var commentButton: UIButton!
+    @IBAction func commentAction(sender: AnyObject) {
+    }
     
     var post: Post!
     var likeRef: Firebase!
@@ -35,6 +42,19 @@ class PostTableViewCell: UITableViewCell {
         self.captionTextView.text = post.postCaption
         self.totalLikesLabel.text = "\(post.postLikes) Likes"
         self.usernameLabel.text = post.username
+        if post.postCategory == "Menu" {
+            self.categoryImage.image = UIImage(named: "menu")
+            self.categoryLabel.text = "I'm from the Menu"
+        }
+        if post.postCategory == "Homemade" {
+            self.categoryImage.image = UIImage(named: "homemade")
+            self.categoryLabel.text = "I'm Home made"
+        }
+        if post.postCategory == "Barcode" {
+            self.categoryImage.image = UIImage(named: "barcode2")
+            self.categoryLabel.text = "I have a Barcode"
+        }
+        
         
         // Set "likes" as a child of the current user in Firebase and save the post's key in likes as a boolean.
         
@@ -70,16 +90,16 @@ class PostTableViewCell: UITableViewCell {
         likeRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
             if let like = snapshot.value as? NSNull {
+                // Debugging
                 print(like)
+                
                 self.likeImage.image = UIImage(named: "like")
                 
                 // addSubtractLike(), in Post.swift, handles the like.
-                
                 self.post.addSubtractLike(true)
                 
                 // setValue saves the likes as true for the current user.
-                // likeRef is a reference to the user's "likes" path.
-                
+                // likeRef is a reference to the user's "likes" path.                
                 self.likeRef.setValue(true)
                 
             } else {
@@ -95,13 +115,13 @@ class PostTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         // UITapGestureRecognizer is set programatically.
-        let tap = UITapGestureRecognizer(target: self, action: "likeTapped:")
+        let tap = UITapGestureRecognizer(target: self, action: #selector(PostTableViewCell.likeTapped(_:)))
         tap.numberOfTapsRequired = 1
         likeImage.addGestureRecognizer(tap)
         likeImage.userInteractionEnabled = true
         
-        let tap2 = UITapGestureRecognizer(target: self, action: "likeTapped:")
-        tap.numberOfTapsRequired = 2
+        let tap2 = UITapGestureRecognizer(target: self, action: #selector(PostTableViewCell.likeTapped(_:)))
+        tap2.numberOfTapsRequired = 2
         feedImage.addGestureRecognizer(tap2)
         feedImage.userInteractionEnabled = true
     }

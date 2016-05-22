@@ -17,6 +17,7 @@ class Post {
     private var _postImage: String!
     private var _postLikes: Int!
     private var _username: String!
+    private var _postCategory: String!
     
     var postKey: String {
         return _postKey
@@ -36,6 +37,10 @@ class Post {
     
     var username: String {
         return _username
+    }
+    
+    var postCategory: String {
+        return _postCategory
     }
     
     // Initialize the new post
@@ -61,6 +66,10 @@ class Post {
             self._username = user
         } else {
             self._username = ""
+        }
+        
+        if let category = dictionary["postCategory"] as? String {
+            self._postCategory = category
         }
         
         // The above properties are assigned to their key.
