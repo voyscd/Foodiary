@@ -86,7 +86,8 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     func changeTabToMiddleTab(sender:UIButton)
     {
         // Set Default Tab
-        let selectedIndex = 0 //Int(self.viewControllers!.count/2)
+        //let selectedIndex = 0 
+        let selectedIndex = Int(self.viewControllers!.count/2)
         self.selectedIndex = selectedIndex
         
         self.selectedViewController = (self.viewControllers as [AnyObject]?)?[selectedIndex] as? UIViewController

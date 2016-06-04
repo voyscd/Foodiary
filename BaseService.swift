@@ -38,6 +38,7 @@ var CURRENT_USER: Firebase
     return currentUser!
 }
 
+
 func createNewAccount(uid: String, user: Dictionary<String, String>) {
     
     // A User is born.    
@@ -48,11 +49,13 @@ func createNewPost(post: Dictionary<String, AnyObject>) {
     
     // Save the Post
     // POST_REF is the parent of the new Post: "posts".
-    // childByAutoId() saves the post and gives it its own ID.
-    
+    // childByAutoId() saves the post and gives it its own ID.    
     let firebaseNewPost = POST_REF.childByAutoId()
     
     // setValue() saves to Firebase.
-    
     firebaseNewPost.setValue(post)
+    
+    // Save the post to user's data hierarchy as well
+    let postId = firebaseNewPost.key
+    CURRENT_USER.childByAppendingPath("posts").childByAppendingPath(postId).setValue(post)
 }

@@ -63,7 +63,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate
         
         if NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil && CURRENT_USER.authData != nil
         {
-            self.logoutBT.hidden = false
+            self.logoutBT.hidden = true
         }
     }
 
@@ -72,15 +72,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate
         // Dispose of any resources that can be recreated.
     }
     
-    // Log out the user
-    @IBAction func logoutAction(sender: AnyObject)
-    {
-        // Unauthenticate the user
-        CURRENT_USER.unauth()
-        NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
-        self.logoutBT.hidden = true
-        print("Logged Out :)")
-    }
+//    // Log out the user
+//    @IBAction func logoutAction(sender: AnyObject)
+//    {
+//        // Unauthenticate the user
+//        CURRENT_USER.unauth()
+//        NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
+//        self.logoutBT.hidden = true
+//        print("Logged Out :)")
+//    }
+    
     // Dismiss keyboard when touch ouside the keyboard
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
@@ -106,6 +107,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+    }
+    
+    // Use for Logout function. Once logout is called the page will
+    // return back to this login view controller.
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue){
+        
     }
 
 }

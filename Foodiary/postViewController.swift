@@ -129,10 +129,6 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
                 // Reset the View and move back to the Feed page
                 tabBarController?.selectedIndex = 0
                 resetView()
-                
-                //            if let navController = self.navigationController {
-                //                navController.popViewControllerAnimated(true)
-                //            }
             }
         }
     }
@@ -238,7 +234,7 @@ class PostViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
     func addImageTapped(sender: UITapGestureRecognizer) {
         let controller = UIAlertController()
         
-        controller.title = "Please Select Image Source"
+        controller.title = "Please select the image source"
         
         let cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.Default){
             action in

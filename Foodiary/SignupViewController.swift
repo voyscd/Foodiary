@@ -104,7 +104,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate
     }
     
     func displayAlert() {
-        let alert = UIAlertController(title: "Error", message: "Enter Email and Password.", preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: "Error", message: "Please fill in all the information.", preferredStyle: UIAlertControllerStyle.Alert)
         let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
         alert.addAction(action)
         self.presentViewController(alert, animated: true, completion: nil)

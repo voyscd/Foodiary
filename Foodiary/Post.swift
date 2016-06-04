@@ -12,6 +12,7 @@ import Firebase
 class Post {
     
     private var _postRef: Firebase!
+    private var _userRef: Firebase!
     private var _postKey: String!
     private var _postCaption: String!
     private var _postImage: String!
@@ -86,10 +87,12 @@ class Post {
             _postLikes = _postLikes - 1
         }
         
-        // Save the new like total.
-        
+        // Save the new number of total likes under that post
         _postRef.childByAppendingPath("likes").setValue(_postLikes)
         
+        // Save the new number of total likes under that user who posted
+        self._userRef = CURRENT_USER.childByAppendingPath("posts").childByAppendingPath(self._postKey)
+        _userRef.childByAppendingPath("likes").setValue(_postLikes)
     }
 
 

@@ -7,6 +7,8 @@
 //
 
 import XCTest
+import Firebase
+import Fusuma
 @testable import Foodiary
 
 class FoodiaryTests: XCTestCase {
@@ -31,6 +33,33 @@ class FoodiaryTests: XCTestCase {
         self.measureBlock {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    func testLogin() {
+        
+        let email = "roy@monash.com"
+        let password = "12345"
+        
+        FIREBASE_REF.authUser(email, password: password, withCompletionBlock: { error, authData in
+
+            
+        })
+    }
+    
+    func testSignup() {
+        
+        let email = "roy@monash.com"
+        let password = "12345"
+        
+        FIREBASE_REF.createUser(email, password: password, withValueCompletionBlock: { (error, authData) -> Void in
+            
+        })
+    }
+    
+    func testConvertImageToBase64(image: UIImage) -> String{
+        let imageData = UIImagePNGRepresentation(UIImage(named: "DefaultFood100")!)
+        let base64String = imageData?.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)        
+        return base64String!
     }
     
 }

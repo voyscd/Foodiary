@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 
+
+
 class PostTableViewCell: UITableViewCell {
     
     @IBOutlet weak var profileImageThumbnail: UIImageView!
@@ -57,11 +59,9 @@ class PostTableViewCell: UITableViewCell {
         
         
         // Set "likes" as a child of the current user in Firebase and save the post's key in likes as a boolean.
-        
         likeRef = CURRENT_USER.childByAppendingPath("likes").childByAppendingPath(post.postKey)
         
         // observeSingleEventOfType() listens for the thumb to be tapped, by any user, on any device.
-        
         likeRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             
             // Set the like image.
@@ -107,7 +107,6 @@ class PostTableViewCell: UITableViewCell {
                 self.post.addSubtractLike(false)
                 self.likeRef.removeValue()
             }
-            
         })
     }
     
@@ -132,8 +131,7 @@ class PostTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    //Convert base64string back into image
-    
+    //Convert base64string back into image    
     func convertBase64ToImage(base64String: String) -> UIImage {
         
         let decodedData = NSData(base64EncodedString: base64String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters )

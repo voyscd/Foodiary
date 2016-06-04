@@ -10,13 +10,22 @@ import UIKit
 import Firebase
 
 class ProfileTableViewController: UITableViewController {
-    
-    var post:Post!
 
+    var currentUsername: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        self.navigationItem.title = "anne"
+        
+        self.tableView.rowHeight = 100.0
+ 
+        CURRENT_USER.observeEventType(FEventType.Value, withBlock: { snapshot in
+            let currentUser = snapshot.value.objectForKey("Username") as! String
+            print("Username: \(currentUser)")
+            self.currentUsername = currentUser
+            self.navigationItem.title = currentUser
+            }, withCancelBlock: { error in
+                print(error.description)
+        })
         
         // Customise the navigation bar
         let color = UIColor(red: 104/255, green: 135/255, blue: 184/255, alpha: 1)
@@ -44,23 +53,25 @@ class ProfileTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 1
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("ProfileCellIdentifier") as? ProfileCell
+        
+            // Send the single post to configureCell() in PostTableViewCell.
+            cell!.configureCell()
+            
+            return cell!
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
